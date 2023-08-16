@@ -2,7 +2,7 @@
 import cv2
 
 # read the input image
-img = cv2.imread('cat.jpg')
+img = cv2.imread('images/cat.jpg')
 
 # convert the input image to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
