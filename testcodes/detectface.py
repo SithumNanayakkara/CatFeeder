@@ -2,14 +2,14 @@
 import cv2
 
 # read the input image
-img = cv2.imread('images/cat.jpg')
+img = cv2.imread('../images/cat.jpg')
 
 # convert the input image to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # read the haarcascade to detect cat faces
 #cat_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalcatface_extended.xml')
-cat_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalcatface.xml')
+cat_cascade = cv2.CascadeClassifier('../haarcascades/haarcascade_frontalcatface.xml')
 
 # Detects cat faces in the input image
 faces = cat_cascade.detectMultiScale(gray, 1.12, 5)
