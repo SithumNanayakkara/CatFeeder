@@ -33,8 +33,7 @@ while 1:
         cv2.rectangle(img,(x,y),(x+w,y+h),(255,255,0),2) 
         roi_gray = gray[y:y+h, x:x+w] 
         roi_color = img[y:y+h, x:x+w] 
-  
-  
+
     # Display an image in a window 
     cv2.imshow('img',img) 
   
