@@ -12,6 +12,8 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11,GPIO.OUT)
 servo = GPIO.PWM(11,50) # pin 5 for micro servo, pulse 50Hz
 
+buttonState = GPIO.input(buttonPin)
+
 # Set pin 29 as an input, and define as PIR as pin 29
 GPIO.setup(29,GPIO.IN)
 
@@ -89,7 +91,6 @@ while True:
             else:
                 print("No cat face detected")
                
-
             
             # Wait for Esc key to stop 
             k = cv2.waitKey(30) & 0xff
