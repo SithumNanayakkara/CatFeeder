@@ -1,6 +1,11 @@
+#!/bin/sh
 
-DAEMON=/var/www/CatFeeder/CatFeederButtonService.py #service path (script path)
-DAEMON_NAME=CatFeederButtonService #service name
+#service path (script path)
+ #service name
+DAEMON=/var/www/CatFeeder/Services/CatFeederButtonService.py
+DAEMON_NAME=CatFeederButtonService
+
+DAEMON_OPTS=""
 
 #Run script as root to use GPIO
 DAEMON_USER=root
