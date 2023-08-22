@@ -1,4 +1,4 @@
-#!/var/www/feeder/bin/python
+#!/var/www/CatFeeder/catenv/bin/python
 import sys
 
 sys.path.extend(['/var/www/CatFeeder'])
@@ -13,8 +13,7 @@ import datetime
 from pathlib import Path
 
 # Find config file
-dir = os.path.dirname(__file__)  # os.getcwd()
-configFilePath = os.path.abspath(os.path.join(dir, "app.cfg"))
+configFilePath = '/var/www/CatFeeder/app.cfg'
 configParser = configparser.RawConfigParser()
 configParser.read(configFilePath)
 
@@ -173,16 +172,11 @@ while True:
                     os.remove(os.path.join(motionVideoDirPath, f))
                     print('Removed old video file: ' + str(f))
 
-    # Update spreadsheet file if exists
-    my_file = Path("/var/www/feeder/feeder/googleapisecret.json")
-    if my_file.is_file():
-        output = commonTasks.update_spreadsheet()
-        print(output)
 
     # Wait specified time before starting again
     time.sleep(float(secondDelay))
     if killer.kill_now: break
-
+    
 print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
 print("End of the program. Killed gracefully")
 print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")

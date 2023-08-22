@@ -2,7 +2,7 @@
 
 #service path (script path)
 #service name
-DAEMON=/var/www/CatFeeder/Services/catFeederButtonService.py
+DAEMON=/var/www/CatFeeder/services/catFeederButtonService.py
 DAEMON_NAME=catFeederButtonService
 
 DAEMON_OPTS=""

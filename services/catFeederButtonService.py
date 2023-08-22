@@ -13,8 +13,7 @@ import configparser
 import os
 
 # Find config file
-dir = os.path.dirname(__file__)
-configFilePath = os.path.abspath(os.path.join(dir, "app.cfg"))
+configFilePath = '/var/www/CatFeeder/app.cfg'
 configParser = configparser.RawConfigParser()
 configParser.read(configFilePath)
 
