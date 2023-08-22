@@ -1,0 +1,15 @@
+This is required to be done
+
+sudo cp /var/www/CatFeeder/Services/CatFeederButtonService.sh /etc/init.d/
+cd /etc/init.d
+sudo chmod 755 CatFeederButtonService.sh
+sudo update-rc.d  CatFeederButtonService.sh defaults
+sudo /etc/init.d/CatFeederButtonService.sh start
+
+
+sudo cp /var/www/CatFeeder/Services/CatFeederTimeService.sh /etc/init.d/
+cd /etc/init.d
+sudo chmod 755 CatFeederTimeService.sh
+sudo update-rc.d  CatFeederTimeService.sh defaults
+sudo /etc/init.d/CatFeederTimeService.sh start
+
