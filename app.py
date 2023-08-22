@@ -26,7 +26,7 @@ configParser.read('/var/www/CatFeeder/app.cfg')
 
 # Read in config variables
 SECRETKEY = str(configParser.get('CatFeederConfig', 'Secretkey'))
-hopperGPIO = str(configParser.get('CatFeederConfig', 'Hopper_GPIO_Pin'))
+hopperGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
 hopperTime = str(configParser.get('CatFeederConfig', 'Hopper_Spin_Time'))
 DB = str(configParser.get('CatFeederConfig', 'Database_Location'))
 latestXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Feed_Times_To_Display'))

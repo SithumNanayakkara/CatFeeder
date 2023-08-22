@@ -20,7 +20,7 @@ configParser.read(configFilePath)
 
 # Read in config variables
 feedButtonGPIO = configParser.get('CatFeederConfig', 'Feed_Button_GPIO_Pin')
-hopperGPIO = configParser.get('CatFeederConfig', 'Hopper_GPIO_Pin')
+hopperGPIO = configParser.get('CatFeederConfig', 'Servo_GPIO_Pin')
 hopperTime = configParser.get('CatFeederConfig', 'Hopper_Spin_Time')
 LOG_ButtonService_FILENAME = configParser.get('CatFeederConfig', 'Log_ButtonService_Filename')
 delayBetweenButtonPushes = configParser.get('CatFeederConfig', 'Seconds_Delay_After_Button_Push')

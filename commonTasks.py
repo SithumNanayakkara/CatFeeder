@@ -17,7 +17,7 @@ configParser.read(configFilePath)
 
 # Read in config variables
 DB = str(configParser.get('CatFeederConfig', 'Database_Location'))
-hopperGPIO = str(configParser.get('CatFeederConfig', 'Hopper_GPIO_Pin'))
+hopperGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
 hopperTime = str(configParser.get('CatFeederConfig', 'Hopper_Spin_Time'))
 latestXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Feed_Times_To_Display'))
 upcomingXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Scheduled_Feed_Times_To_Display'))
