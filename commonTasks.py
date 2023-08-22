@@ -129,16 +129,31 @@ def spin_hopper(pin, duration):
     try:
         pin = int(pin)
         duration = float(duration)
+         
         GPIO.setwarnings(False)
         GPIO.cleanup(pin)
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(pin, GPIO.OUT)
-        GPIO.output(pin, GPIO.HIGH)
-        GPIO.output(pin, GPIO.LOW)
+        
+        servo = GPIO.PWM(pin,50)
+        servo.start(0)
+        angle = 35
+        
+        servo.ChangeDutyCycle(2+(angle/18))
+        time.sleep(0.5)
+        servo.ChangeDutyCycle(0)
+        
         time.sleep(duration)
-        GPIO.output(pin, GPIO.HIGH)
+        
+        
+        #Turn the servo to close
+        angle = 0
+        servo.ChangeDutyCycle(2+(angle/18))
+        time.sleep(0.5)
+        servo.ChangeDutyCycle(0)
+        
+        servo.stop()
         GPIO.cleanup(pin)
-
         return 'ok'
     except Exception as e:
         return 'ok'  # e
@@ -184,7 +199,7 @@ def spreadsheetFeed():
 
 def update_spreadsheet():
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('/var/www/feeder/feeder/googleapisecret.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('/var/www/CatFeeder/googleapisecret.json', scope)
     client = gspread.authorize(creds)
     sheet = client.open(spreadsheetFileName).sheet1
 
