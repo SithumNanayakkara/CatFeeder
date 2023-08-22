@@ -1,7 +1,7 @@
 #!/bin/sh
 
-DAEMON=/var/www/CatFeeder/Services/CatFeederTimeService.py
-DAEMON_NAME=CatFeederTimeService
+DAEMON=/var/www/CatFeeder/Services/catFeederTimeService.py
+DAEMON_NAME=catFeederTimeService
 
 DAEMON_OPTS=""
 

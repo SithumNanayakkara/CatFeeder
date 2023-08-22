@@ -340,10 +340,10 @@ def logout():
 def admin_page():
     try:
         if 'userLogin' in session:
-            buttonServiceFullOutput = ControlService('CatFeederButtonService', 'status')
+            buttonServiceFullOutput = ControlService('catFeederButtonService', 'status')
             buttonServiceFinalStatus = CleanServiceStatusOutput(str(buttonServiceFullOutput))
 
-            timeServiceFullOutput = ControlService('CatFeederTimeService', 'status')
+            timeServiceFullOutput = ControlService('catFeederTimeService', 'status')
             timeServiceFinalStatus = CleanServiceStatusOutput(str(timeServiceFullOutput))
 
             sshServiceFullOutput = ControlService('ssh', 'status')
@@ -451,7 +451,7 @@ def stopWebcamService():
 def startButtonService():
     try:
         if 'userLogin' in session:
-            myLogTimeServiceFullOutput = ControlService('CatFeederButtonService', 'start')
+            myLogTimeServiceFullOutput = ControlService('catFeederButtonService', 'start')
 
             flash('Button Service Started!')
             return redirect(url_for('admin_page'))
@@ -465,7 +465,7 @@ def startButtonService():
 def stopButtonService():
     try:
         if 'userLogin' in session:
-            myLogTimeServiceFullOutput = ControlService('CatFeederButtonService', 'stop')
+            myLogTimeServiceFullOutput = ControlService('catFeederButtonService', 'stop')
 
             flash('Button Service Stopped!')
             return redirect(url_for('admin_page'))
@@ -479,7 +479,7 @@ def stopButtonService():
 def startTimeService():
     try:
         if 'userLogin' in session:
-            myLogTimeServiceFullOutput = ControlService('CatFeederTimeService', 'start')
+            myLogTimeServiceFullOutput = ControlService('catFeederTimeService', 'start')
 
             flash('Time Service Started!')
             return redirect(url_for('admin_page'))
@@ -493,7 +493,7 @@ def startTimeService():
 def stopTimeService():
     try:
         if 'userLogin' in session:
-            myLogTimeServiceFullOutput = ControlService('CatFeederTimeService', 'stop')
+            myLogTimeServiceFullOutput = ControlService('catFeederTimeService', 'stop')
 
             flash('Time Service Stopped!')
             return redirect(url_for('admin_page'))
