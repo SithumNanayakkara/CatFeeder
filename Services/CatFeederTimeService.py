@@ -22,7 +22,7 @@ configParser.read(configFilePath)
 secondDelay = configParser.get('CatFeederConfig', 'Seconds_Delay_Between_Schedule_Checks')
 LOG_TimeService_FILENAME = configParser.get('CatFeederConfig', 'Log_TimeService_Filename')
 hopperGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
-hopperTime = str(configParser.get('CatFeederConfig', 'Hopper_Spin_Time'))
+hopperTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
 motionVideoDirPath = str(configParser.get('CatFeederConfig', 'Motion_Video_Dir_Path'))
 nowMinusXDays = str(configParser.get('CatFeederConfig', 'Number_Days_Of_Videos_To_Keep'))
 
