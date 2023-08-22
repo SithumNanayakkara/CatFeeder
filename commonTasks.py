@@ -19,7 +19,6 @@ hopperGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
 hopperTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
 latestXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Feed_Times_To_Display'))
 upcomingXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Scheduled_Feed_Times_To_Display'))
-spreadsheetFileName = str(configParser.get('CatFeederConfig', 'Spreadsheet_File_Name'))
 
 
 def connect_db():
