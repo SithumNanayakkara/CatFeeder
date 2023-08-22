@@ -3,6 +3,8 @@
 DAEMON=/var/www/CatFeeder/Services/CatFeederTimeService.py
 DAEMON_NAME=CatFeederTimeService
 
+DAEMON_OPTS=""
+
 DAEMON_USER=root
 
 
