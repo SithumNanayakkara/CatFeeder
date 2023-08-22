@@ -11,6 +11,7 @@ import RPi.GPIO as GPIO
 import datetime
 import configparser
 import os
+import cv2
 
 # Find config file
 configFilePath = '/var/www/CatFeeder/app.cfg'
@@ -22,7 +23,8 @@ pirsensorGPIO = configParser.get('CatFeederConfig', 'PIR_GPIO_Pin')
 hopperGPIO = configParser.get('CatFeederConfig', 'Servo_GPIO_Pin')
 hopperTime = configParser.get('CatFeederConfig', 'Servo_Open_Time')
 LOG_WalkInService_FILENAME = configParser.get('CatFeederConfig', 'Log_WalkInService_Filename')
-delayBetweenButtonPushes = configParser.get('CatFeederConfig', 'Seconds_Delay_After_Button_Push')
+delayBetweenWalkIns = configParser.get('CatFeederConfig', 'Seconds_Delay_After_WalkIn')
+lookingForCatSeconds = configParser.get('CatFeederConfig', 'Seconds_Wait_For_Cat')
 
 # Define and parse command line arguments
 parser = argparse.ArgumentParser(description="My simple Python service")
@@ -90,21 +92,77 @@ GPIO.setwarnings(False)
 GPIO.cleanup(pirSensor)
 GPIO.setup(pirSensor, GPIO.IN)
 
+#Define the trained XML classifiers
+face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalcatface.xml')
+
 print("End Start up. Starting while loop")
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 while True:
     pirValue = GPIO.input(pirSensor)
 
-    if pirValue ==0:
-     
-        print ("No motion detected!")
-        time.sleep(0.1)
+    if pirValue ==0: #No motion detected!
+        time.sleep(1)
   
-    elif pirValue ==1:
-     
-        print ("Motion detected!")
-        motionDetect = commonTasks.print_to_LCDScreen(">>Motion Detected!<<")
-        time.sleep(2)
+    elif pirValue ==1: #Motion detected!
+        motionDetectDatetime = datetime.datetime.now()
+        print("Motion was detected at " + str(motionDetectDatetime))
+        motionDetect = commonTasks.print_to_LCDScreen("Motion Detected!")
+
+        # capture frames from the camera 
+        cap = cv2.VideoCapture(0)
+        
+        #start timeout timer if capturing has been initialized
+        timeout_start = time.time()
+
+        catfound = False
+        
+        # loop runs till timeout specified by Seconds_Wait_For_Cat in app.cfg or till cat is found
+        while time.time() < timeout_start + lookingForCatSeconds or not(catfound) :
+            
+            # reads frames from a camera 
+            ret, img = cap.read() 
+  
+            # convert to gray scale of each frames 
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
+  
+            # Detects faces of different sizes in the input image 
+            faces = face_cascade.detectMultiScale(gray, 1.12, 5) 
+  
+            for (x,y,w,h) in faces: 
+                # To draw a rectangle in a face 
+                cv2.rectangle(img,(x,y),(x+w,y+h),(255,255,0),2) 
+                roi_gray = gray[y:y+h, x:x+w] 
+                roi_color = img[y:y+h, x:x+w]
+                
+            # Display an image in a window 
+            cv2.imshow('img',img)
+                
+            if len(faces) > 0:
+                catDetectDatetime = datetime.datetime.now()
+                print("Cat detected at " + str(catDetectDatetime))
+                motionDetect = commonTasks.print_to_LCDScreen("Cat Detected!")
+
+                lastFeedDateCursor = commonTasks.db_get_last_feedtimes(1)
+                lastFeedDateString = lastFeedDateCursor[0][0]
+                lastFeedDateObject = datetime.datetime.strptime(lastFeedDateString, "%Y-%m-%d %H:%M:%S")
+                print("Last feed time in DB was at " + str(lastFeedDateObject))
+                
+                tdelta = catDetectDatetime - lastFeedDateObject
+                print("Difference in seconds between two: " + str(tdelta.seconds))
+
+                if tdelta.seconds < int(delayBetweenWalkIns):
+                    print("Feed times closer than " + str(delayBetweenWalkIns) + " seconds. Holding off for now.")
+                else:
+                    spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
+                    print("End Hopper return status: " + str(spin))
+                    dblog = commonTasks.db_insert_feedtime(catDetectDatetime, 1)
+                    print("End DB Insert return status: " + str(dblog))
+                    updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
+                    print("End Message Display return status: " + str(updatescreen))
+                    catfound = True
+            else:
+                print("No cat face detected")
+                catfound = False
 
     if killer.kill_now: break
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
