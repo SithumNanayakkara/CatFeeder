@@ -129,7 +129,7 @@ while True:
             print("Scheduled time: " + str(value))
             print("Minutes difference: " + str(d[0]))
 
-            spin = commonTasks.spin_hopper(hopperGPIO, hopperTime)
+            spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
             if spin != 'ok':
                 print('Error! Feeder not activated! Error Message: ' + str(spin))
 

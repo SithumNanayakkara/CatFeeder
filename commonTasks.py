@@ -125,7 +125,7 @@ def get_last_feedtime_string():
         return e
 
 
-def spin_hopper(pin, duration):
+def rotate_servo(pin, duration):
     try:
         pin = int(pin)
         duration = float(duration)
@@ -185,7 +185,7 @@ def print_to_LCDScreen(message):
 
 def spreadsheetFeed():
     dateNowObject = datetime.datetime.now()
-    spin = spin_hopper(hopperGPIO, hopperTime)
+    spin = rotate_servo(hopperGPIO, hopperTime)
 
     if spin != 'ok':
         return 'Error! No feed activated! Error Message: ' + str(spin)

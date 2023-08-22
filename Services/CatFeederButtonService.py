@@ -120,7 +120,7 @@ while True:
         if tdelta.seconds < int(delayBetweenButtonPushes):
             print("Feed times closure than " + str(delayBetweenButtonPushes) + " seconds. Hold off for now.")
         else:
-            spin = commonTasks.spin_hopper(hopperGPIO, hopperTime)
+            spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
             print("End Hopper return status: " + str(spin))
             dblog = commonTasks.db_insert_feedtime(buttonPressDatetime, 1)
             print("End DB Insert return status: " + str(dblog))

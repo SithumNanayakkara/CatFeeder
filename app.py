@@ -110,7 +110,7 @@ def feedbuttonclick():
     try:
         dateNowObject = datetime.datetime.now()
 
-        spin = commonTasks.spin_hopper(hopperGPIO, hopperTime)
+        spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
 
         if spin != 'ok':
             flash('Error! No feed activated! Error Message: ' + str(spin), 'error')
@@ -137,7 +137,7 @@ def feedbuttonclickSmartHome():
     try:
         dateNowObject = datetime.datetime.now()
 
-        spin = commonTasks.spin_hopper(hopperGPIO, hopperTime)
+        spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
         if spin != 'ok':
             flash('Error! No feed activated! Error Message: ' + str(spin), 'error')
             return redirect(url_for('home_page'))
