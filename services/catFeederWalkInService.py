@@ -117,7 +117,7 @@ while True:
         catfound = False
         
         # loop runs till timeout specified by Seconds_Wait_For_Cat in app.cfg or till cat is found
-        while time.time() < timeout_start + lookingForCatSeconds or not(catfound) :
+        while time.time() < timeout_start + int(lookingForCatSeconds) or not(catfound) :
             
             # reads frames from a camera 
             ret, img = cap.read() 
