@@ -152,10 +152,13 @@ while True:
 
                 if tdelta.seconds < int(delayBetweenWalkIns):
                     print("Feed times closer than " + str(delayBetweenWalkIns) + " seconds. Holding off for now.")
+                    remainingTime = lastFeedDateObject - catDetectDatetime
+                    holdingOff = commonTasks.print_to_LCDScreen("Too Frequent! \nWait for: " + str(remainingTime))
+                    print("Message Display return status: " + str(holdingOff))
                 else:
                     turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
                     print("End Hopper return status: " + str(turn))
-                    dblog = commonTasks.db_insert_feedtime(catDetectDatetime, 1)
+                    dblog = commonTasks.db_insert_feedtime(catDetectDatetime, 6)
                     print("End DB Insert return status: " + str(dblog))
                     updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
                     print("End Message Display return status: " + str(updatescreen))
@@ -163,6 +166,9 @@ while True:
             else:
                 print("No cat face detected")
                 catfound = False
+
+        # Close the video capture 
+        cap.release()
 
     if killer.kill_now: break
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
