@@ -20,8 +20,8 @@ configParser.read(configFilePath)
 
 # Read in config variables
 pirsensorGPIO = configParser.get('CatFeederConfig', 'PIR_GPIO_Pin')
-hopperGPIO = configParser.get('CatFeederConfig', 'Servo_GPIO_Pin')
-hopperTime = configParser.get('CatFeederConfig', 'Servo_Open_Time')
+servoGPIO = configParser.get('CatFeederConfig', 'Servo_GPIO_Pin')
+servoOpenTime = configParser.get('CatFeederConfig', 'Servo_Open_Time')
 LOG_WalkInService_FILENAME = configParser.get('CatFeederConfig', 'Log_WalkInService_Filename')
 delayBetweenWalkIns = configParser.get('CatFeederConfig', 'Seconds_Delay_After_WalkIn')
 lookingForCatSeconds = configParser.get('CatFeederConfig', 'Seconds_Wait_For_Cat')
@@ -141,7 +141,7 @@ while True:
                 catDetectDatetime = datetime.datetime.now()
                 print("Cat detected at " + str(catDetectDatetime))
                 motionDetect = commonTasks.print_to_LCDScreen("Cat Detected!")
-
+                print("Message Display return status: " + str(motionDetect))
                 lastFeedDateCursor = commonTasks.db_get_last_feedtimes(1)
                 lastFeedDateString = lastFeedDateCursor[0][0]
                 lastFeedDateObject = datetime.datetime.strptime(lastFeedDateString, "%Y-%m-%d %H:%M:%S")
@@ -152,10 +152,13 @@ while True:
 
                 if tdelta.seconds < int(delayBetweenWalkIns):
                     print("Feed times closer than " + str(delayBetweenWalkIns) + " seconds. Holding off for now.")
+                    remainingTime = lastFeedDateObject - catDetectDatetime
+                    holdingOff = commonTasks.print_to_LCDScreen("Too Frequent! \nWait for: " + str(remainingTime))
+                    print("Message Display return status: " + str(holdingOff))
                 else:
-                    spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
-                    print("End Hopper return status: " + str(spin))
-                    dblog = commonTasks.db_insert_feedtime(catDetectDatetime, 1)
+                    turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
+                    print("End Hopper return status: " + str(turn))
+                    dblog = commonTasks.db_insert_feedtime(catDetectDatetime, 6)
                     print("End DB Insert return status: " + str(dblog))
                     updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
                     print("End Message Display return status: " + str(updatescreen))
@@ -163,6 +166,9 @@ while True:
             else:
                 print("No cat face detected")
                 catfound = False
+
+        # Close the video capture 
+        cap.release()
 
     if killer.kill_now: break
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
