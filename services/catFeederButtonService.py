@@ -19,8 +19,8 @@ configParser.read(configFilePath)
 
 # Read in config variables
 feedButtonGPIO = configParser.get('CatFeederConfig', 'Feed_Button_GPIO_Pin')
-hopperGPIO = configParser.get('CatFeederConfig', 'Servo_GPIO_Pin')
-hopperTime = configParser.get('CatFeederConfig', 'Servo_Open_Time')
+servoGPIO = configParser.get('CatFeederConfig', 'Servo_GPIO_Pin')
+servoOpenTime = configParser.get('CatFeederConfig', 'Servo_Open_Time')
 LOG_ButtonService_FILENAME = configParser.get('CatFeederConfig', 'Log_ButtonService_Filename')
 delayBetweenButtonPushes = configParser.get('CatFeederConfig', 'Seconds_Delay_After_Button_Push')
 
@@ -119,8 +119,8 @@ while True:
         if tdelta.seconds < int(delayBetweenButtonPushes):
             print("Feed times closure than " + str(delayBetweenButtonPushes) + " seconds. Hold off for now.")
         else:
-            spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
-            print("End Hopper return status: " + str(spin))
+            turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
+            print("End Hopper return status: " + str(turn))
             dblog = commonTasks.db_insert_feedtime(buttonPressDatetime, 1)
             print("End DB Insert return status: " + str(dblog))
             updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())

@@ -20,8 +20,8 @@ configParser.read(configFilePath)
 # Read in config variables
 secondDelay = configParser.get('CatFeederConfig', 'Seconds_Delay_Between_Schedule_Checks')
 LOG_TimeService_FILENAME = configParser.get('CatFeederConfig', 'Log_TimeService_Filename')
-hopperGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
-hopperTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
+servoGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
+servoOpenTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
 motionVideoDirPath = str(configParser.get('CatFeederConfig', 'Motion_Video_Dir_Path'))
 nowMinusXDays = str(configParser.get('CatFeederConfig', 'Number_Days_Of_Videos_To_Keep'))
 
@@ -128,9 +128,9 @@ while True:
             print("Scheduled time: " + str(value))
             print("Minutes difference: " + str(d[0]))
 
-            spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
-            if spin != 'ok':
-                print('Error! Feeder not activated! Error Message: ' + str(spin))
+            turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
+            if turn != 'ok':
+                print('Error! Feeder not activated! Error Message: ' + str(turn))
 
             dbInsert = commonTasks.db_insert_feedtime(value, 3)
             if dbInsert != 'ok':

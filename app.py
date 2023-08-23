@@ -26,8 +26,8 @@ configParser.read('/var/www/CatFeeder/app.cfg')
 
 # Read in config variables
 SECRETKEY = str(configParser.get('CatFeederConfig', 'Secretkey'))
-hopperGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
-hopperTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
+servoGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
+servoOpenTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
 DB = str(configParser.get('CatFeederConfig', 'Database_Location'))
 latestXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Feed_Times_To_Display'))
 upcomingXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Scheduled_Feed_Times_To_Display'))
@@ -110,10 +110,10 @@ def feedbuttonclick():
     try:
         dateNowObject = datetime.datetime.now()
 
-        spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
+        turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
 
-        if spin != 'ok':
-            flash('Error! No feed activated! Error Message: ' + str(spin), 'error')
+        if turn != 'ok':
+            flash('Error! No feed activated! Error Message: ' + str(turn), 'error')
             return redirect(url_for('home_page'))
 
         dbInsert = commonTasks.db_insert_feedtime(dateNowObject, 2)  # FeedType 2=Button Click
@@ -137,9 +137,9 @@ def feedbuttonclickSmartHome():
     try:
         dateNowObject = datetime.datetime.now()
 
-        spin = commonTasks.rotate_servo(hopperGPIO, hopperTime)
-        if spin != 'ok':
-            flash('Error! No feed activated! Error Message: ' + str(spin), 'error')
+        turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
+        if turn != 'ok':
+            flash('Error! No feed activated! Error Message: ' + str(turn), 'error')
             return redirect(url_for('home_page'))
 
         dbInsert = commonTasks.db_insert_feedtime(dateNowObject, 4)  # FeedType 4=Smart Home
