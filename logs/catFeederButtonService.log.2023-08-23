@@ -1,0 +1,260 @@
+2023-08-23 00:17:49,296 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:17:49,299 INFO     End of the program loop. Killed gracefully
+2023-08-23 00:17:49,299 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:17:49,300 ERROR    Exception ignored in:
+2023-08-23 00:17:49,301 ERROR    <__main__.MyLogger object at 0x7634fe50>
+2023-08-23 00:17:49,301 ERROR    AttributeError
+2023-08-23 00:17:49,302 ERROR    :
+2023-08-23 00:17:49,302 ERROR    'MyLogger' object has no attribute 'flush'
+2023-08-23 00:23:50,227 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:23:50,229 INFO     Starting up
+2023-08-23 00:23:53,033 INFO     Welcome message return status: ok
+2023-08-23 00:23:53,064 INFO     Screen message to print: Last feed time:
+Yesterday 11:41PM
+2023-08-23 00:23:54,923 INFO     Message display return status: ok
+2023-08-23 00:23:54,924 INFO     Create Gracekiller class
+2023-08-23 00:23:54,929 INFO     Set up button for While Loop
+2023-08-23 00:23:54,929 INFO     End Start up. Starting while loop
+2023-08-23 00:23:54,930 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:24:02,306 INFO     -------------------------------------------------------------------------
+2023-08-23 00:24:02,407 INFO     Button was pressed at 2023-08-23 00:24:02.406975
+2023-08-23 00:24:02,409 INFO     Last feed time in DB was at 2023-08-22 23:41:22
+2023-08-23 00:24:02,410 INFO     Difference in seconds between two: 2560
+2023-08-23 00:24:04,012 INFO     End Hopper return status: ok
+2023-08-23 00:24:04,038 INFO     End DB Insert return status: ok
+2023-08-23 00:24:05,942 INFO     End Message Display return status: ok
+2023-08-23 00:24:08,229 INFO     -------------------------------------------------------------------------
+2023-08-23 00:24:08,336 INFO     Button was pressed at 2023-08-23 00:24:08.331804
+2023-08-23 00:24:08,343 INFO     Last feed time in DB was at 2023-08-23 00:24:02
+2023-08-23 00:24:08,343 INFO     Difference in seconds between two: 6
+2023-08-23 00:24:09,947 INFO     End Hopper return status: ok
+2023-08-23 00:24:09,971 INFO     End DB Insert return status: ok
+2023-08-23 00:24:11,822 INFO     End Message Display return status: ok
+2023-08-23 00:24:13,405 INFO     -------------------------------------------------------------------------
+2023-08-23 00:24:13,507 INFO     Button was pressed at 2023-08-23 00:24:13.507140
+2023-08-23 00:24:13,510 INFO     Last feed time in DB was at 2023-08-23 00:24:08
+2023-08-23 00:24:13,511 INFO     Difference in seconds between two: 5
+2023-08-23 00:24:15,113 INFO     End Hopper return status: ok
+2023-08-23 00:24:15,136 INFO     End DB Insert return status: ok
+2023-08-23 00:24:17,000 INFO     End Message Display return status: ok
+2023-08-23 00:37:27,305 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:37:27,332 INFO     End of the program loop. Killed gracefully
+2023-08-23 00:37:27,333 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:37:27,346 ERROR    Exception ignored in:
+2023-08-23 00:37:27,366 ERROR    <__main__.MyLogger object at 0x763cfe10>
+2023-08-23 00:37:27,367 ERROR    AttributeError
+2023-08-23 00:37:27,369 ERROR    :
+2023-08-23 00:37:27,371 ERROR    'MyLogger' object has no attribute 'flush'
+2023-08-23 00:39:28,608 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:39:28,610 INFO     Starting up
+2023-08-23 00:39:31,424 INFO     Welcome message return status: ok
+2023-08-23 00:39:31,455 INFO     Screen message to print: Last feed time:
+Today 12:38 AM
+2023-08-23 00:39:33,309 INFO     Message display return status: ok
+2023-08-23 00:39:33,310 INFO     Create Gracekiller class
+2023-08-23 00:39:33,311 INFO     Set up button for While Loop
+2023-08-23 00:39:33,311 INFO     End Start up. Starting while loop
+2023-08-23 00:39:33,312 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:54:22,531 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:54:22,531 INFO     Starting up
+2023-08-23 00:54:25,327 INFO     Welcome message return status: ok
+2023-08-23 00:54:25,347 INFO     Screen message to print: Last feed time:
+Today 12:38 AM
+2023-08-23 00:54:27,175 INFO     Message display return status: ok
+2023-08-23 00:54:27,179 INFO     Create Gracekiller class
+2023-08-23 00:54:27,180 INFO     Set up button for While Loop
+2023-08-23 00:54:27,180 INFO     End Start up. Starting while loop
+2023-08-23 00:54:27,180 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:54:37,001 INFO     -------------------------------------------------------------------------
+2023-08-23 00:54:37,001 INFO     -------------------------------------------------------------------------
+2023-08-23 00:54:37,101 INFO     Button was pressed at 2023-08-23 00:54:37.101738
+2023-08-23 00:54:37,102 INFO     Button was pressed at 2023-08-23 00:54:37.101765
+2023-08-23 00:54:37,104 INFO     Last feed time in DB was at 2023-08-23 00:38:57
+2023-08-23 00:54:37,105 INFO     Last feed time in DB was at 2023-08-23 00:38:57
+2023-08-23 00:54:37,105 INFO     Difference in seconds between two: 940
+2023-08-23 00:54:37,105 INFO     Difference in seconds between two: 940
+2023-08-23 00:54:38,708 INFO     End Hopper return status: ok
+2023-08-23 00:54:38,708 INFO     End Hopper return status: ok
+2023-08-23 00:54:38,732 INFO     End DB Insert return status: ok
+2023-08-23 00:54:38,765 INFO     End DB Insert return status: ok
+2023-08-23 00:54:40,586 INFO     End Message Display return status: ok
+2023-08-23 00:54:40,616 INFO     End Message Display return status: ok
+2023-08-23 00:54:46,655 INFO     -------------------------------------------------------------------------
+2023-08-23 00:54:46,655 INFO     -------------------------------------------------------------------------
+2023-08-23 00:54:46,756 INFO     Button was pressed at 2023-08-23 00:54:46.756426
+2023-08-23 00:54:46,756 INFO     Button was pressed at 2023-08-23 00:54:46.756407
+2023-08-23 00:54:46,759 INFO     Last feed time in DB was at 2023-08-23 00:54:37
+2023-08-23 00:54:46,759 INFO     Last feed time in DB was at 2023-08-23 00:54:37
+2023-08-23 00:54:46,760 INFO     Difference in seconds between two: 9
+2023-08-23 00:54:46,760 INFO     Difference in seconds between two: 9
+2023-08-23 00:54:48,362 INFO     End Hopper return status: ok
+2023-08-23 00:54:48,370 INFO     End Hopper return status: ok
+2023-08-23 00:54:48,394 INFO     End DB Insert return status: ok
+2023-08-23 00:54:48,417 INFO     End DB Insert return status: ok
+2023-08-23 00:54:50,259 INFO     End Message Display return status: ok
+2023-08-23 00:54:50,277 INFO     End Message Display return status: ok
+2023-08-23 00:54:55,419 INFO     -------------------------------------------------------------------------
+2023-08-23 00:54:55,419 INFO     -------------------------------------------------------------------------
+2023-08-23 00:54:55,520 INFO     Button was pressed at 2023-08-23 00:54:55.520236
+2023-08-23 00:54:55,520 INFO     Button was pressed at 2023-08-23 00:54:55.520280
+2023-08-23 00:54:55,523 INFO     Last feed time in DB was at 2023-08-23 00:54:46
+2023-08-23 00:54:55,523 INFO     Last feed time in DB was at 2023-08-23 00:54:46
+2023-08-23 00:54:55,524 INFO     Difference in seconds between two: 9
+2023-08-23 00:54:55,524 INFO     Difference in seconds between two: 9
+2023-08-23 00:54:57,126 INFO     End Hopper return status: ok
+2023-08-23 00:54:57,126 INFO     End Hopper return status: ok
+2023-08-23 00:54:57,147 INFO     End DB Insert return status: ok
+2023-08-23 00:54:57,165 INFO     End DB Insert return status: ok
+2023-08-23 00:54:59,029 INFO     End Message Display return status: ok
+2023-08-23 00:54:59,031 INFO     End Message Display return status: ok
+2023-08-23 00:55:10,586 INFO     -------------------------------------------------------------------------
+2023-08-23 00:55:10,593 INFO     -------------------------------------------------------------------------
+2023-08-23 00:55:10,687 INFO     Button was pressed at 2023-08-23 00:55:10.687103
+2023-08-23 00:55:10,690 INFO     Last feed time in DB was at 2023-08-23 00:54:55
+2023-08-23 00:55:10,690 INFO     Difference in seconds between two: 15
+2023-08-23 00:55:10,708 INFO     Button was pressed at 2023-08-23 00:55:10.701592
+2023-08-23 00:55:10,711 INFO     Last feed time in DB was at 2023-08-23 00:54:55
+2023-08-23 00:55:10,711 INFO     Difference in seconds between two: 15
+2023-08-23 00:55:12,293 INFO     End Hopper return status: ok
+2023-08-23 00:55:12,311 INFO     End DB Insert return status: ok
+2023-08-23 00:55:12,314 INFO     End Hopper return status: ok
+2023-08-23 00:55:12,335 INFO     End DB Insert return status: ok
+2023-08-23 00:55:14,167 INFO     End Message Display return status: ok
+2023-08-23 00:55:14,205 INFO     End Message Display return status: ok
+2023-08-23 00:55:15,284 INFO     -------------------------------------------------------------------------
+2023-08-23 00:55:15,284 INFO     -------------------------------------------------------------------------
+2023-08-23 00:55:15,385 INFO     Button was pressed at 2023-08-23 00:55:15.385468
+2023-08-23 00:55:15,389 INFO     Last feed time in DB was at 2023-08-23 00:55:10
+2023-08-23 00:55:15,389 INFO     Difference in seconds between two: 5
+2023-08-23 00:55:15,391 INFO     Button was pressed at 2023-08-23 00:55:15.385514
+2023-08-23 00:55:15,394 INFO     Last feed time in DB was at 2023-08-23 00:55:10
+2023-08-23 00:55:15,395 INFO     Difference in seconds between two: 5
+2023-08-23 00:55:16,992 INFO     End Hopper return status: ok
+2023-08-23 00:55:16,997 INFO     End Hopper return status: ok
+2023-08-23 00:55:17,015 INFO     End DB Insert return status: ok
+2023-08-23 00:55:17,038 INFO     End DB Insert return status: ok
+2023-08-23 00:55:18,880 INFO     End Message Display return status: ok
+2023-08-23 00:55:18,904 INFO     End Message Display return status: ok
+2023-08-23 00:55:19,981 INFO     -------------------------------------------------------------------------
+2023-08-23 00:55:19,981 INFO     -------------------------------------------------------------------------
+2023-08-23 00:55:20,082 INFO     Button was pressed at 2023-08-23 00:55:20.081810
+2023-08-23 00:55:20,082 INFO     Button was pressed at 2023-08-23 00:55:20.081844
+2023-08-23 00:55:20,085 INFO     Last feed time in DB was at 2023-08-23 00:55:15
+2023-08-23 00:55:20,085 INFO     Last feed time in DB was at 2023-08-23 00:55:15
+2023-08-23 00:55:20,085 INFO     Difference in seconds between two: 5
+2023-08-23 00:55:20,085 INFO     Difference in seconds between two: 5
+2023-08-23 00:55:21,688 INFO     End Hopper return status: ok
+2023-08-23 00:55:21,688 INFO     End Hopper return status: ok
+2023-08-23 00:55:21,714 INFO     End DB Insert return status: ok
+2023-08-23 00:55:21,743 INFO     End DB Insert return status: ok
+2023-08-23 00:55:23,579 INFO     End Message Display return status: ok
+2023-08-23 00:55:23,602 INFO     End Message Display return status: ok
+2023-08-23 00:55:40,435 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:55:40,439 INFO     End of the program loop. Killed gracefully
+2023-08-23 00:55:40,439 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:57:46,659 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 00:57:46,660 INFO     Starting up
+2023-08-23 00:57:49,471 INFO     Welcome message return status: ok
+2023-08-23 00:57:49,504 INFO     Screen message to print: Last feed time:
+Today 12:55 AM
+2023-08-23 00:57:51,372 INFO     Message display return status: ok
+2023-08-23 00:57:51,372 INFO     Create Gracekiller class
+2023-08-23 00:57:51,373 INFO     Set up button for While Loop
+2023-08-23 00:57:51,373 INFO     End Start up. Starting while loop
+2023-08-23 00:57:51,373 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 01:01:35,499 INFO     -------------------------------------------------------------------------
+2023-08-23 01:01:35,601 INFO     Button was pressed at 2023-08-23 01:01:35.601536
+2023-08-23 01:01:35,604 INFO     Last feed time in DB was at 2023-08-23 00:55:28
+2023-08-23 01:01:35,605 INFO     Difference in seconds between two: 367
+2023-08-23 01:01:37,207 INFO     End Hopper return status: ok
+2023-08-23 01:01:37,228 INFO     End DB Insert return status: ok
+2023-08-23 01:01:39,094 INFO     End Message Display return status: ok
+2023-08-23 01:28:09,032 INFO     -------------------------------------------------------------------------
+2023-08-23 01:28:09,132 INFO     Button was pressed at 2023-08-23 01:28:09.132801
+2023-08-23 01:28:09,138 INFO     Last feed time in DB was at 2023-08-23 01:03:54
+2023-08-23 01:28:09,139 INFO     Difference in seconds between two: 1455
+2023-08-23 01:28:10,741 INFO     End Hopper return status: ok
+2023-08-23 01:28:10,760 INFO     End DB Insert return status: ok
+2023-08-23 01:28:12,624 INFO     End Message Display return status: ok
+2023-08-23 03:32:43,780 INFO     -------------------------------------------------------------------------
+2023-08-23 03:32:43,881 INFO     Button was pressed at 2023-08-23 03:32:43.881388
+2023-08-23 03:32:43,884 INFO     Last feed time in DB was at 2023-08-23 02:23:56
+2023-08-23 03:32:43,884 INFO     Difference in seconds between two: 4127
+2023-08-23 03:32:45,487 INFO     End Hopper return status: ok
+2023-08-23 03:32:45,508 INFO     End DB Insert return status: ok
+2023-08-23 03:32:47,369 INFO     End Message Display return status: ok
+2023-08-23 03:34:46,615 INFO     -------------------------------------------------------------------------
+2023-08-23 03:34:46,716 INFO     Button was pressed at 2023-08-23 03:34:46.716253
+2023-08-23 03:34:46,719 INFO     Last feed time in DB was at 2023-08-23 03:34:03
+2023-08-23 03:34:46,720 INFO     Difference in seconds between two: 43
+2023-08-23 03:34:48,322 INFO     End Hopper return status: ok
+2023-08-23 03:34:48,345 INFO     End DB Insert return status: ok
+2023-08-23 03:34:50,207 INFO     End Message Display return status: ok
+2023-08-23 03:41:40,981 INFO     -------------------------------------------------------------------------
+2023-08-23 03:41:41,082 INFO     Button was pressed at 2023-08-23 03:41:41.082643
+2023-08-23 03:41:41,085 INFO     Last feed time in DB was at 2023-08-23 03:34:46
+2023-08-23 03:41:41,086 INFO     Difference in seconds between two: 415
+2023-08-23 03:41:42,688 INFO     End Hopper return status: ok
+2023-08-23 03:41:42,707 INFO     End DB Insert return status: ok
+2023-08-23 03:41:44,569 INFO     End Message Display return status: ok
+2023-08-23 08:40:30,396 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 08:40:30,396 INFO     End of the program loop. Killed gracefully
+2023-08-23 08:40:30,397 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 08:40:30,398 ERROR    Exception ignored in:
+2023-08-23 08:40:30,400 ERROR    <__main__.MyLogger object at 0x7635ddf0>
+2023-08-23 08:40:30,400 ERROR    AttributeError
+2023-08-23 08:40:30,401 ERROR    :
+2023-08-23 08:40:30,402 ERROR    'MyLogger' object has no attribute 'flush'
+2023-08-23 08:42:04,250 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 08:42:04,252 INFO     Starting up
+2023-08-23 08:42:07,064 INFO     Welcome message return status: ok
+2023-08-23 08:42:07,094 INFO     Screen message to print: Last feed time:
+Today 03:41 AM
+2023-08-23 08:42:08,950 INFO     Message display return status: ok
+2023-08-23 08:42:08,951 INFO     Create Gracekiller class
+2023-08-23 08:42:08,952 INFO     Set up button for While Loop
+2023-08-23 08:42:08,952 INFO     End Start up. Starting while loop
+2023-08-23 08:42:08,953 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 08:42:13,288 INFO     -------------------------------------------------------------------------
+2023-08-23 08:42:13,389 INFO     Button was pressed at 2023-08-23 08:42:13.389578
+2023-08-23 08:42:13,392 INFO     Last feed time in DB was at 2023-08-23 03:41:41
+2023-08-23 08:42:13,392 INFO     Difference in seconds between two: 18032
+2023-08-23 08:42:14,995 INFO     End Hopper return status: ok
+2023-08-23 08:42:15,019 INFO     End DB Insert return status: ok
+2023-08-23 08:42:16,881 INFO     End Message Display return status: ok
+2023-08-23 08:42:17,833 INFO     -------------------------------------------------------------------------
+2023-08-23 08:42:17,934 INFO     Button was pressed at 2023-08-23 08:42:17.934326
+2023-08-23 08:42:17,936 INFO     Last feed time in DB was at 2023-08-23 08:42:13
+2023-08-23 08:42:17,937 INFO     Difference in seconds between two: 4
+2023-08-23 08:42:19,539 INFO     End Hopper return status: ok
+2023-08-23 08:42:19,561 INFO     End DB Insert return status: ok
+2023-08-23 08:42:21,421 INFO     End Message Display return status: ok
+2023-08-23 08:42:32,212 INFO     -------------------------------------------------------------------------
+2023-08-23 08:42:32,313 INFO     Button was pressed at 2023-08-23 08:42:32.312921
+2023-08-23 08:42:32,315 INFO     Last feed time in DB was at 2023-08-23 08:42:17
+2023-08-23 08:42:32,315 INFO     Difference in seconds between two: 15
+2023-08-23 08:42:33,918 INFO     End Hopper return status: ok
+2023-08-23 08:42:33,936 INFO     End DB Insert return status: ok
+2023-08-23 08:42:35,798 INFO     End Message Display return status: ok
+2023-08-23 08:42:47,526 INFO     -------------------------------------------------------------------------
+2023-08-23 08:42:47,627 INFO     Button was pressed at 2023-08-23 08:42:47.627581
+2023-08-23 08:42:47,630 INFO     Last feed time in DB was at 2023-08-23 08:42:32
+2023-08-23 08:42:47,630 INFO     Difference in seconds between two: 15
+2023-08-23 08:42:49,233 INFO     End Hopper return status: ok
+2023-08-23 08:42:49,254 INFO     End DB Insert return status: ok
+2023-08-23 08:42:51,115 INFO     End Message Display return status: ok
+2023-08-23 08:43:02,488 INFO     -------------------------------------------------------------------------
+2023-08-23 08:43:02,589 INFO     Button was pressed at 2023-08-23 08:43:02.589491
+2023-08-23 08:43:02,592 INFO     Last feed time in DB was at 2023-08-23 08:42:47
+2023-08-23 08:43:02,592 INFO     Difference in seconds between two: 15
+2023-08-23 08:43:04,194 INFO     End Hopper return status: ok
+2023-08-23 08:43:04,212 INFO     End DB Insert return status: ok
+2023-08-23 08:43:06,074 INFO     End Message Display return status: ok
+2023-08-23 16:32:47,935 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 16:32:47,936 INFO     End of the program loop. Killed gracefully
+2023-08-23 16:32:47,936 INFO     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-08-23 16:32:47,937 ERROR    Exception ignored in:
+2023-08-23 16:32:47,937 ERROR    <__main__.MyLogger object at 0x7651ce30>
+2023-08-23 16:32:47,938 ERROR    AttributeError
+2023-08-23 16:32:47,938 ERROR    :
+2023-08-23 16:32:47,938 ERROR    'MyLogger' object has no attribute 'flush'
