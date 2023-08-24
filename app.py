@@ -410,18 +410,49 @@ def clearBadLoginList():
         return render_template('error.html', resultsSET=e)
 
 
-@app.route('/startWebcamService', methods=['GET', 'POST'])
-def startWebcamService():
+# @app.route('/startWebcamService', methods=['GET', 'POST'])
+# def startWebcamService():
+#     try:
+#         if 'userLogin' in session:
+
+#             process = subprocess.Popen(["sudo", "motion", "-c", "/home/pi/.motion/motion.conf"],
+#                                        stdout=subprocess.PIPE,
+#                                        stderr=subprocess.STDOUT)
+
+#             startWebcamServiceFullOutput = ControlService('motion', 'start')
+
+#             flash('Webcam Service Started!')
+#             return redirect(url_for('admin_page'))
+#         else:
+#             return redirect(url_for('admin_login_page'))
+#     except Exception as e:
+#         return render_template('error.html', resultsSET=e)
+
+
+# @app.route('/stopWebcamService', methods=['GET', 'POST'])
+# def stopWebcamService():
+#     try:
+#         if 'userLogin' in session:
+#             stopWebcamServiceFullOutput = ControlService('motion', 'stop')
+
+#             process = subprocess.Popen(["sudo", "pkill", "-f", "motion.conf"],
+#                                        stdout=subprocess.PIPE,
+#                                        stderr=subprocess.STDOUT)
+
+#             flash('Webcam Service Stopped!')
+#             return redirect(url_for('admin_page'))
+#         else:
+#             return redirect(url_for('admin_login_page'))
+#     except Exception as e:
+#         return render_template('error.html', resultsSET=e)
+
+@app.route('/startWalkInService', methods=['GET', 'POST'])
+def startWalkInService():
     try:
         if 'userLogin' in session:
+            myLogTimeServiceFullOutput = ControlService('catFeederWalkInService', 'start')
 
-            process = subprocess.Popen(["sudo", "motion", "-c", "/home/pi/.motion/motion.conf"],
-                                       stdout=subprocess.PIPE,
-                                       stderr=subprocess.STDOUT)
-
-            startWebcamServiceFullOutput = ControlService('motion', 'start')
-
-            flash('Webcam Service Started!')
+            flash('WalkIn Service Started!')
             return redirect(url_for('admin_page'))
         else:
             return redirect(url_for('admin_login_page'))
@@ -429,17 +460,13 @@ def startWebcamService():
         return render_template('error.html', resultsSET=e)
 
 
-@app.route('/stopWebcamService', methods=['GET', 'POST'])
-def stopWebcamService():
+@app.route('/stopWalkInService', methods=['GET', 'POST'])
+def stopWalkInService():
     try:
         if 'userLogin' in session:
-            stopWebcamServiceFullOutput = ControlService('motion', 'stop')
+            myLogTimeServiceFullOutput = ControlService('catFeederWalkInService', 'stop')
 
-            process = subprocess.Popen(["sudo", "pkill", "-f", "motion.conf"],
-                                       stdout=subprocess.PIPE,
-                                       stderr=subprocess.STDOUT)
-
-            flash('Webcam Service Stopped!')
+            flash('WalkIn Service Stopped!')
             return redirect(url_for('admin_page'))
         else:
             return redirect(url_for('admin_login_page'))
