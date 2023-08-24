@@ -107,7 +107,12 @@ while True:
         motionDetectDatetime = datetime.datetime.now()
         print("Motion was detected at " + str(motionDetectDatetime))
         motionDetect = commonTasks.print_to_LCDScreen("Motion Detected!")
-
+        time.sleep(1)
+        print("Message Display return status: " + str(motionDetect))
+        looking = commonTasks.print_to_LCDScreen("Looking for cat")
+        time.sleep(1)
+        print("Message Display return status: " + str(looking))
+        
         # capture frames from the camera 
         cap = cv2.VideoCapture(0)
         
@@ -142,6 +147,7 @@ while True:
                 catDetectDatetime = datetime.datetime.now()
                 print("Cat detected at " + str(catDetectDatetime))
                 motionDetect = commonTasks.print_to_LCDScreen("Cat Detected!")
+                time.sleep(1)
                 print("Message Display return status: " + str(motionDetect))
                 lastFeedDateCursor = commonTasks.db_get_last_feedtimes(1)
                 lastFeedDateString = lastFeedDateCursor[0][0]
@@ -154,13 +160,17 @@ while True:
                 if tdelta.seconds < int(delayBetweenWalkIns):
                     print("Feed times closer than " + str(delayBetweenWalkIns) + " seconds. Holding off for now.")
                     remainingTime = int(delayBetweenWalkIns) - tdelta.seconds
-                    holdingOff = commonTasks.print_to_LCDScreen("Too Frequent! \nWait for: " + str(remainingTime))
+                    holdingOff = commonTasks.print_to_LCDScreen("Too Frequent! \nWait for: " + str(remainingTime) + "s")
+                    time.sleep(1)
                     print("Message Display return status: " + str(holdingOff))
                 else:
                     turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
                     print("End Hopper return status: " + str(turn))
                     dblog = commonTasks.db_insert_feedtime(catDetectDatetime, 6)
                     print("End DB Insert return status: " + str(dblog))
+                    feeding = commonTasks.print_to_LCDScreen("Feeding!")
+                    time.sleep(1)
+                    print("End Message Display return status: " + str(feeding))
                     updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
                     print("End Message Display return status: " + str(updatescreen))
             else:
