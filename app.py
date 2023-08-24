@@ -349,7 +349,7 @@ def admin_page():
             sshServiceFullOutput = ControlService('ssh', 'status')
             sshServiceFinalStatus = CleanServiceStatusOutput(str(sshServiceFullOutput))
 
-            walkInServiceFullOutput = ControlService('motion', 'status')
+            walkInServiceFullOutput = ControlService('catFeederWalkInService', 'status')
             walkInServiceFinalStatus = CleanServiceStatusOutput(str(walkInServiceFullOutput))
 
             # webcameraServiceFullOutput = ControlService('motion', 'status')
@@ -454,8 +454,7 @@ def clearBadLoginList():
 def startWalkInService():
     try:
         if 'userLogin' in session:
-            myLogWalkInServiceFullOutput = ControlService('catFeederWalkInService', 'start')
-
+            walkInServiceFullOutput = ControlService('catFeederWalkInService', 'start')
             flash('WalkIn Service Started!')
             return redirect(url_for('admin_page'))
         else:
@@ -468,7 +467,7 @@ def startWalkInService():
 def stopWalkInService():
     try:
         if 'userLogin' in session:
-            myLogWalkInServiceFullOutput = ControlService('catFeederWalkInService', 'stop')
+            walkInServiceFullOutput = ControlService('catFeederWalkInService', 'stop')
 
             flash('WalkIn Service Stopped!')
             return redirect(url_for('admin_page'))
@@ -580,20 +579,20 @@ def CleanServiceStatusOutput(serviceOutput):
         elif serviceOutput.find('no tty present not be found') > 0:
             return str('Inactive')
         elif serviceOutput.find('inactive (dead)') > 0:
-            buttonServiceStartString = serviceOutput.find('(dead) since') + len('(dead)')
-            buttonServiceEndString = serviceOutput.find('ago', buttonServiceStartString)
-            buttonServiceFinalStatus = serviceOutput[buttonServiceStartString:buttonServiceEndString]
-            return str('Inactive: ' + str(buttonServiceFinalStatus))
+            ServiceStartString = serviceOutput.find('(dead) since') + len('(dead)')
+            ServiceEndString = serviceOutput.find('ago', ServiceStartString)
+            ServiceFinalStatus = serviceOutput[ServiceStartString:ServiceEndString]
+            return str('Inactive: ' + str(ServiceFinalStatus))
         elif serviceOutput.find('active (running)') > 0:
-            buttonServiceStartString = serviceOutput.find('(running) since') + len('(running)')
-            buttonServiceEndString = serviceOutput.find('ago', buttonServiceStartString)
-            buttonServiceFinalStatus = serviceOutput[buttonServiceStartString:buttonServiceEndString]
-            return str('Active: ' + str(buttonServiceFinalStatus))
+            ServiceStartString = serviceOutput.find('(running) since') + len('(running)')
+            ServiceEndString = serviceOutput.find('ago', ServiceStartString)
+            ServiceFinalStatus = serviceOutput[ServiceStartString:ServiceEndString]
+            return str('Active: ' + str(ServiceFinalStatus))
         elif serviceOutput.find('active (exited) since') > 0:
-            buttonServiceStartString = serviceOutput.find('active (exited) since') + len('active (exited)')
-            buttonServiceEndString = serviceOutput.find('ago', buttonServiceStartString)
-            buttonServiceFinalStatus = serviceOutput[buttonServiceStartString:buttonServiceEndString]
-            return str('Active: ' + str(buttonServiceFinalStatus))
+            ServiceStartString = serviceOutput.find('active (exited) since') + len('active (exited)')
+            ServiceEndString = serviceOutput.find('ago', ServiceStartString)
+            ServiceFinalStatus = serviceOutput[ServiceStartString:ServiceEndString]
+            return str('Active: ' + str(ServiceFinalStatus))
         else:
             return str(serviceOutput)
 
