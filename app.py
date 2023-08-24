@@ -450,7 +450,7 @@ def clearBadLoginList():
 def startWalkInService():
     try:
         if 'userLogin' in session:
-            myLogTimeServiceFullOutput = ControlService('catFeederWalkInService', 'start')
+            myLogWalkInServiceFullOutput = ControlService('catFeederWalkInService', 'start')
 
             flash('WalkIn Service Started!')
             return redirect(url_for('admin_page'))
@@ -464,7 +464,7 @@ def startWalkInService():
 def stopWalkInService():
     try:
         if 'userLogin' in session:
-            myLogTimeServiceFullOutput = ControlService('catFeederWalkInService', 'stop')
+            myLogWalkInServiceFullOutput = ControlService('catFeederWalkInService', 'stop')
 
             flash('WalkIn Service Stopped!')
             return redirect(url_for('admin_page'))
