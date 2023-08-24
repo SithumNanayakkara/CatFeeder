@@ -349,8 +349,11 @@ def admin_page():
             sshServiceFullOutput = ControlService('ssh', 'status')
             sshServiceFinalStatus = CleanServiceStatusOutput(str(sshServiceFullOutput))
 
-            webcameraServiceFullOutput = ControlService('motion', 'status')
-            webcameraServiceFinalStatus = CleanServiceStatusOutput(str(webcameraServiceFullOutput))
+            walkInServiceFullOutput = ControlService('motion', 'status')
+            walkInServiceFinalStatus = CleanServiceStatusOutput(str(walkInServiceFullOutput))
+
+            # webcameraServiceFullOutput = ControlService('motion', 'status')
+            # webcameraServiceFinalStatus = CleanServiceStatusOutput(str(webcameraServiceFullOutput))
 
             # Bad login log
             conn = sqlite3.connect(DB)
@@ -378,7 +381,8 @@ def admin_page():
                                    , buttonServiceFinalStatus=buttonServiceFinalStatus
                                    , timeServiceFinalStatus=timeServiceFinalStatus
                                    , sshServiceFinalStatus=sshServiceFinalStatus
-                                   , webcameraServiceFinalStatus=webcameraServiceFinalStatus
+                                   , walkInServiceFinalStatus=walkInServiceFinalStatus
+                                  #, webcameraServiceFinalStatus=webcameraServiceFinalStatus
                                    , invalidLogins=invalidLogins
                                    , userLogins=userLogins
                                    )
