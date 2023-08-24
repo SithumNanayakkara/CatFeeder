@@ -94,8 +94,7 @@ GPIO.setup(pirSensor, GPIO.IN)
 
 #Define the trained XML classifiers
 face_cascade = cv2.CascadeClassifier('/var/www/CatFeeder/haarcascades/haarcascade_frontalcatface.xml')
-#test = face_cascade.load ('haarcascades/haarcascade_frontalcatface.xml')
-#print(test)
+
 print("End Start up. Starting while loop")
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 while True:
@@ -118,7 +117,7 @@ while True:
         catfound = False
         
         # loop runs till timeout specified by Seconds_Wait_For_Cat in app.cfg or till cat is found
-        while time.time() < timeout_start + int(lookingForCatSeconds) or not(catfound) :
+        while time.time() < timeout_start + int(lookingForCatSeconds) and not(catfound) :
             
             # reads frames from a camera 
             ret, img = cap.read() 
@@ -139,6 +138,7 @@ while True:
             cv2.imshow('img',img)
                 
             if len(faces) > 0:
+                catfound = True
                 catDetectDatetime = datetime.datetime.now()
                 print("Cat detected at " + str(catDetectDatetime))
                 motionDetect = commonTasks.print_to_LCDScreen("Cat Detected!")
@@ -153,10 +153,9 @@ while True:
 
                 if tdelta.seconds < int(delayBetweenWalkIns):
                     print("Feed times closer than " + str(delayBetweenWalkIns) + " seconds. Holding off for now.")
-                    remainingTime = delayBetweenWalkIns - tdelta.seconds
+                    remainingTime = int(delayBetweenWalkIns) - tdelta.seconds
                     holdingOff = commonTasks.print_to_LCDScreen("Too Frequent! \nWait for: " + str(remainingTime))
                     print("Message Display return status: " + str(holdingOff))
-                    catfound = True
                 else:
                     turn = commonTasks.rotate_servo(servoGPIO, servoOpenTime)
                     print("End Hopper return status: " + str(turn))
@@ -164,7 +163,6 @@ while True:
                     print("End DB Insert return status: " + str(dblog))
                     updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
                     print("End Message Display return status: " + str(updatescreen))
-                    catfound = True
             else:
                 print("No cat face detected")
                 time.sleep(0.5)
