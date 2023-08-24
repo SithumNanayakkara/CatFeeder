@@ -13,3 +13,9 @@ sudo chmod 755 catFeederTimeService.sh
 sudo update-rc.d  catFeederTimeService.sh defaults
 sudo /etc/init.d/catFeederTimeService.sh start
 
+sudo cp /var/www/CatFeeder/Services/catFeederWalkInService.sh /etc/init.d/
+cd /etc/init.d
+sudo chmod 755 catFeederWalkInService.sh
+sudo update-rc.d  catFeederWalkInService.sh defaults
+sudo /etc/init.d/catFeederWalkInService.sh start
+
