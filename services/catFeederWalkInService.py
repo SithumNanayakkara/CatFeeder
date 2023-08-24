@@ -93,8 +93,9 @@ GPIO.cleanup(pirSensor)
 GPIO.setup(pirSensor, GPIO.IN)
 
 #Define the trained XML classifiers
-face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalcatface.xml')
-
+face_cascade = cv2.CascadeClassifier('/var/www/CatFeeder/haarcascades/haarcascade_frontalcatface.xml')
+#test = face_cascade.load ('haarcascades/haarcascade_frontalcatface.xml')
+#print(test)
 print("End Start up. Starting while loop")
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 while True:
