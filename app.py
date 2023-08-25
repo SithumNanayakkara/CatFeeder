@@ -68,39 +68,6 @@ def home_page():
 
             finalUpcomingFeedTimeList.append(finalString)
 
-        # latestXVideoFeedTimes
-        latestXVideoFeedTimes = []
-        for path, subdirs, files in os.walk(motionVideoDirPath):
-            for name in sorted(files, key=lambda name:
-            os.path.getmtime(os.path.join(path, name))):
-                if name.endswith('.mkv'):
-                    vidDisplayDate = datetime.datetime.fromtimestamp(
-                        os.path.getmtime(os.path.join(path, name))).strftime('%m-%d-%y %I:%M %p')
-                    vidFileName = name
-                    vidFileSize = str(round(os.path.getsize(os.path.join(path, name)) / (1024 * 1024.0), 1))
-                    latestXVideoFeedTimes.append([vidDisplayDate, vidFileName, vidFileSize])
-
-        latestXVideoFeedTimes = latestXVideoFeedTimes[::-1]  # Reverse so newest first
-        latestXVideoFeedTimes = latestXVideoFeedTimes[:int(latestXNumberVideoFeedTimesValue)]
-
-        
-
-        cameraStatusOutput = DetectCamera()
-
-        # cameraStatusOutput = 'supported=0 detected=1'
-        if "detected=1" in str(cameraStatusOutput):
-            cameraStatus = '1'
-        else:
-            cameraStatus = '0'
-
-        # Return page
-        return render_template('home.html', latestXNumberFeedTimes=finalFeedTimeList
-                               , upcomingXNumberFeedTimes=finalUpcomingFeedTimeList
-                               , cameraSiteAddress=motionCameraSiteAddress
-                               , latestXVideoFeedTimes=latestXVideoFeedTimes
-                               , cameraStatus=cameraStatus
-                               )
-
     except Exception as e:
         return render_template('error.html', resultsSET=e)
 
@@ -413,42 +380,6 @@ def clearBadLoginList():
     except Exception as e:
         return render_template('error.html', resultsSET=e)
 
-
-# @app.route('/startWebcamService', methods=['GET', 'POST'])
-# def startWebcamService():
-#     try:
-#         if 'userLogin' in session:
-
-#             process = subprocess.Popen(["sudo", "motion", "-c", "/home/pi/.motion/motion.conf"],
-#                                        stdout=subprocess.PIPE,
-#                                        stderr=subprocess.STDOUT)
-
-#             startWebcamServiceFullOutput = ControlService('motion', 'start')
-
-#             flash('Webcam Service Started!')
-#             return redirect(url_for('admin_page'))
-#         else:
-#             return redirect(url_for('admin_login_page'))
-#     except Exception as e:
-#         return render_template('error.html', resultsSET=e)
-
-
-# @app.route('/stopWebcamService', methods=['GET', 'POST'])
-# def stopWebcamService():
-#     try:
-#         if 'userLogin' in session:
-#             stopWebcamServiceFullOutput = ControlService('motion', 'stop')
-
-#             process = subprocess.Popen(["sudo", "pkill", "-f", "motion.conf"],
-#                                        stdout=subprocess.PIPE,
-#                                        stderr=subprocess.STDOUT)
-
-#             flash('Webcam Service Stopped!')
-#             return redirect(url_for('admin_page'))
-#         else:
-#             return redirect(url_for('admin_login_page'))
-#     except Exception as e:
-#         return render_template('error.html', resultsSET=e)
 
 @app.route('/startWalkInService', methods=['GET', 'POST'])
 def startWalkInService():
