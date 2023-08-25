@@ -14,11 +14,6 @@
     #ButtonServiceMessage {display:inline-block}
     #startButtonService {display:inline-block}
     #stopButtonService {display:inline-block}
-    /* #WebcamServiceIcon {display:inline-block}
-    #WebcamServiceStatus {display:inline-block}
-    #WebcamServiceMessage {display:inline-block}
-    #startWebcamService {display:inline-block}
-    #stopWebcamService {display:inline-block} */
     #WalkInServiceIcon {display:inline-block}
     #WalkInServiceStatus {display:inline-block}
     #WalkInServiceMessage {display:inline-block}
@@ -202,17 +197,6 @@
         }
     </script>
 
-    <!-- <script>
-        var a=document.getElementById("WebcamServiceMessage");
-        var a=a.innerHTML
-        if (a.match(/Active.*/)) {
-            document.getElementById("WebcamServiceIcon").setAttribute("src","/static/images/greencircle.png")
-        }
-        if (a.match(/Inactive.*/)) {
-            document.getElementById("WebcamServiceIcon").setAttribute("src","/static/images/redcircle.png")
-        }
-    </script> -->
-
     <script>
         var a=document.getElementById("WalkInServiceMessage");
         var a=a.innerHTML
@@ -234,7 +218,6 @@
             document.getElementById("sshServiceIcon").setAttribute("src","/static/images/redcircle.png")
         }
     </script>
-
 
     <script>
         function deleteRow(btn){
