@@ -179,3 +179,20 @@ def print_to_LCDScreen(message):
         return 'ok'
     except Exception as e:
         return 'ok'
+    
+def print_to_LCDScreen_no_Animation(message):
+    try:
+        lcd = Adafruit_CharLCD()
+        lcd.begin(16, 2)
+        lcd.noDisplay()
+        lcd.clear()
+        lcd.message(str(message))
+        for x in range(0, 16):
+            lcd.DisplayLeft()
+        lcd.display()
+        for x in range(0, 16):
+            lcd.scrollDisplayRight()
+            time.sleep(.05)
+        return 'ok'
+    except Exception as e:
+        return 'ok'
