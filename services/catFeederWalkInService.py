@@ -109,9 +109,6 @@ while True:
         motionDetect = commonTasks.print_to_LCDScreen("Motion Detected!")
         time.sleep(1)
         print("Message Display return status: " + str(motionDetect))
-        looking = commonTasks.print_to_LCDScreen("Looking for cat")
-        time.sleep(1)
-        print("Message Display return status: " + str(looking))
         
         # capture frames from the camera 
         cap = cv2.VideoCapture(0)
@@ -123,7 +120,12 @@ while True:
         
         # loop runs till timeout specified by Seconds_Wait_For_Cat in app.cfg or till cat is found
         while time.time() < timeout_start + int(lookingForCatSeconds) and not(catfound) :
-            
+            print("While loop started - looking for cat")
+            print("Time left in loop: " + time.time() - (timeout_start + int(lookingForCatSeconds)))
+            looking = commonTasks.print_to_LCDScreen("Looking for cat")
+            time.sleep(1)
+            print("Message Display return status: " + str(looking))
+
             # reads frames from a camera 
             ret, img = cap.read() 
   
