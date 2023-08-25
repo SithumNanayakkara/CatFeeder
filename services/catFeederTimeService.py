@@ -160,18 +160,6 @@ while True:
 
             break
 
-    # Remove video files older then specified days
-    now = time.time()
-    nowMinusSpecifiedDays = now - int(nowMinusXDays) * 86400
-    # Loop and remove
-    for f in os.listdir(motionVideoDirPath):
-        if f != '.gitkeep':
-            f = os.path.join(motionVideoDirPath, f)
-            if os.stat(f).st_mtime < nowMinusSpecifiedDays:
-                if os.path.isfile(f):
-                    os.remove(os.path.join(motionVideoDirPath, f))
-                    print('Removed old video file: ' + str(f))
-
 
     # Wait specified time before starting again
     time.sleep(float(secondDelay))
