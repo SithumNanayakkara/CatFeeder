@@ -12,8 +12,7 @@
   padding: 25px;
 }
 
-.navbar navbar-default {
-
-  background-color: burlywood;
-
+.navbar-default {
+  background-color: #edb99f;
+  border-color: #000000;
 }
