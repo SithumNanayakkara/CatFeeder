@@ -31,10 +31,6 @@ servoOpenTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
 DB = str(configParser.get('CatFeederConfig', 'Database_Location'))
 latestXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Feed_Times_To_Display'))
 upcomingXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Scheduled_Feed_Times_To_Display'))
-motionVideoDirPath = str(configParser.get('CatFeederConfig', 'Motion_Video_Dir_Path'))
-latestXNumberVideoFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Videos_To_Display'))
-motionCameraSiteAddress = str(configParser.get('CatFeederConfig', 'Motion_Camera_Site_Address'))
-nowMinusXDays = str(configParser.get('CatFeederConfig', 'Number_Days_Of_Videos_To_Keep'))
 
 
 #####################################################################################
@@ -212,18 +208,6 @@ def video_page(videoid):
     except Exception as e:
         return render_template('error.html', resultsSET=e)
 
-
-def DetectCamera():
-    try:
-
-        process = subprocess.Popen(["vcgencmd", "get_camera"],
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.STDOUT)
-        return process.stdout.read()
-    except Exception as e:
-        return 'status=0'
-
-
 ######################################################################################
 ##########################################ADMIN PAGE##################################
 ######################################################################################
@@ -318,9 +302,6 @@ def admin_page():
 
             walkInServiceFullOutput = ControlService('catFeederWalkInService', 'status')
             walkInServiceFinalStatus = CleanServiceStatusOutput(str(walkInServiceFullOutput))
-
-            # webcameraServiceFullOutput = ControlService('motion', 'status')
-            # webcameraServiceFinalStatus = CleanServiceStatusOutput(str(webcameraServiceFullOutput))
 
             # Bad login log
             conn = sqlite3.connect(DB)

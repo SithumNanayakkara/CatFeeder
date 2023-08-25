@@ -8,26 +8,11 @@
 
 
 <div class="row">
-    {% if cameraStatus == '1' %}
-        <div class="col-md-6 text-center">
-            <form role="form" name="feedbuttonclick" method="post" action="/feedbuttonclick">
-                <button class="btn btn-lg feedButton" type="submit">Feed Now</button>
-            </form>
-        </div>
-
-        <div class="col-md-6 text-center">
-            <br>
-            <form role="form" action="{{cameraSiteAddress}}">
-                <button class="btn btn-lg camButton" type="submit">Live Video</button>
-            </form>
-        </div>
-    {% else %}
         <div class="col-md-12 text-center">
             <form role="form" name="feedbuttonclick" method="post" action="/feedbuttonclick">
                 <button class="btn btn-lg feedButton" type="submit">Feed Now</button>
             </form>
         </div>
-    {% endif %}
 </div>
 
 <br>
@@ -48,71 +33,11 @@
             {% endfor %}
             </tbody>
         </table>
-
-        {% if cameraStatus == '1' %}
-            <div>
-                <form name="myForm" method="post">
-                    <table class="table" id="upcomingFeedTimesTable">
-                        <thead>
-                        <tr>
-                            <th>Scheduled Times</th>
-                            <th>Delete Time</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for entry in upcomingXNumberFeedTimes %}
-                        <tr>
-                            <td>{{entry}}</td>
-                            <td class="text-center">
-                                <input class="btn-sm btn-danger" type="button" value="Delete" onclick="deleteRow(this)"/>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </form>
-                <div>
-                    <h4>Schedule a Feed Time</h4>
-                    <form role="form" name="scheduleDatetime" method="post" action="/scheduleDatetime">
-                        <input type="date" name="scheduleDatetime">
-                        <input type="time" name="scheduleTime">
-                        <input style="margin-top: 5px" class="btn btn-primary" type="submit" value="Schedule One Time Feed">
-                    </form>
-                </div>
-                <br>
-                <div>
-                    <form role="form" name="scheduleRepeatingDatetime" method="post" action="/scheduleRepeatingDatetime">
-                        <input type="text" name="scheduleRepeatingDate" value="Daily" size="17" readonly>
-                        <input type="time" name="scheduleRepeatingTime">
-                        <input style="margin-top: 5px" class="btn btn-primary" type="submit" value="Schedule Repeating Daily Feed">
-                    </form>
-                </div>
-                <br>
-            </div>
-        {% else %}
-
-        {% endif %}
     </div>
 
 
 
     <div class="col-md-6" >
-        {% if cameraStatus == '1' %}
-            <table class="FeedTable table">
-                <thead>
-                <th>Latest Videos</th>
-                <th>Size</th>
-                </thead>
-                <tbody>
-                {% for entry in latestXVideoFeedTimes %}
-                <tr>
-                    <td><a href="{{ url_for('video_page', videoid=entry[1] ) }}">{{entry[0]}}</a></td>
-                    <td>{{entry[2]}} MB</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
             <div>
                 <form name="myForm" method="post">
                     <table class="table" id="upcomingFeedTimesTable">
@@ -152,10 +77,7 @@
                     <br>
                 </div>
             </div>
-        {% endif %}
     </div>
-
-
 </div>
 
 
