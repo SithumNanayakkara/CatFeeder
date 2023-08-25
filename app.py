@@ -64,6 +64,11 @@ def home_page():
 
             finalUpcomingFeedTimeList.append(finalString)
 
+        # Return page
+        return render_template('home.html', latestXNumberFeedTimes=finalFeedTimeList
+                               , upcomingXNumberFeedTimes=finalUpcomingFeedTimeList
+                               )
+
     except Exception as e:
         return render_template('error.html', resultsSET=e)
 
@@ -208,7 +213,6 @@ def admin_login_page():
 
     except Exception as e:
         return render_template('error.html', resultsSET=e)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_verify():
