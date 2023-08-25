@@ -1,4 +1,4 @@
-#!/var/www/CatFeeder/catenv/bin/python
+#!/usr/bin/python
 import sys
 
 sys.path.extend(['/var/www/CatFeeder'])
@@ -169,7 +169,6 @@ while True:
                     dblog = commonTasks.db_insert_feedtime(catDetectDatetime, 6)
                     print("End DB Insert return status: " + str(dblog))
                     feeding = commonTasks.print_to_LCDScreen("Feeding!")
-                    time.sleep(1)
                     print("End Message Display return status: " + str(feeding))
                     updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
                     print("End Message Display return status: " + str(updatescreen))
