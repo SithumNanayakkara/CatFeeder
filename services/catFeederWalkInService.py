@@ -170,16 +170,24 @@ while True:
                     print("End DB Insert return status: " + str(dblog))
                     feeding = commonTasks.print_to_LCDScreen("Feeding!")
                     print("End Message Display return status: " + str(feeding))
-                    updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
-                    print("End Message Display return status: " + str(updatescreen))
+                    time.sleep(1)
             else:
-                print("No cat face detected")
                 time.sleep(0.5)
                 catfound = False
 
+        if not(catfound):
+            print("No cat face detected for: " + int(lookingForCatSeconds) + "s")
+            notFound = commonTasks.print_to_LCDScreen("No cat detected!\nLooked for: " + int(lookingForCatSeconds) +"s")
+            time.sleep(1)
+
+        print("End Message Display return status: " + str(notFound))
+        updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
+        if updatescreen != 'ok':
+            print('Warning. Screen feedtime did not update: ' + str(updatescreen))
+
         # Close the video capture 
         cap.release()
-
+             
     if killer.kill_now: break
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 print("End of the program loop. Killed gracefully")
