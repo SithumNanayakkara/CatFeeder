@@ -180,8 +180,8 @@ while True:
         print("Exiting while loop - looking for cat")
         if not(catfound):
             print("No cat face detected for: " + lookingForCatSeconds + "s")
-            notFound = commonTasks.print_to_LCDScreen("No cat detected!\nLooked for: " + int(lookingForCatSeconds) +"s")
-            time.sleep(1)
+            notFound = commonTasks.print_to_LCDScreen("No cat detected!\nLooked for: " + lookingForCatSeconds +"s")
+            time.sleep(3)
 
         print("End Message Display return status: " + str(notFound))
         updatescreen = commonTasks.print_to_LCDScreen(commonTasks.get_last_feedtime_string())
