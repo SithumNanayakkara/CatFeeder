@@ -12,6 +12,7 @@ import datetime
 import configparser
 import os
 import cv2
+import threading
 
 # Find config file
 configFilePath = '/var/www/CatFeeder/app.cfg'
@@ -79,6 +80,11 @@ class GracefulKiller:
     def exit_gracefully(self, signum, frame):
         self.kill_now = True
 
+def display_on_lcd(message):
+    looking = commonTasks.print_to_LCDScreen(message)
+    time.sleep(1)
+    print("Message Display return status: " + str(looking))       
+
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 print("Starting up")
 
@@ -124,8 +130,14 @@ while True:
 
         # loop runs till timeout specified by Seconds_Wait_For_Cat in app.cfg or till cat is found
         while time.time() < timeout_start + int(lookingForCatSeconds) and not(catfound) :
+            
             print("While loop started - looking for cat")
-            print("Time left in loop: " + str(time.time() - (timeout_start + int(lookingForCatSeconds)))+ "s")
+            timeleft = str(time.time() - (timeout_start + int(lookingForCatSeconds)))
+            print("Time left in loop: " + timeleft + "s")
+
+            lcd_thread = threading.Thread(target=display_on_lcd, args=("Looking for cat\n"+ "for another: " + timeleft,))
+            lcd_thread.start()
+            
             # reads frames from a camera 
             ret, img = cap.read() 
   
