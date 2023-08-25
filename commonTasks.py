@@ -17,6 +17,7 @@ configParser.read(configFilePath)
 DB = str(configParser.get('CatFeederConfig', 'Database_Location'))
 servoGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
 servoOpenTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
+servoOpenAngle = str(configParser.get('CatFeederConfig', 'Servo_Open_Angle'))
 latestXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Feed_Times_To_Display'))
 upcomingXNumberFeedTimesValue = str(configParser.get('CatFeederConfig', 'Number_Scheduled_Feed_Times_To_Display'))
 
@@ -135,8 +136,7 @@ def rotate_servo(pin, duration):
         #Turn the servo to close
         servo = GPIO.PWM(pin,50)
         servo.start(0)
-        angle = 35
-        
+        angle = int(servoOpenAngle)
         servo.ChangeDutyCycle(2+(angle/18))
         time.sleep(0.5)
         servo.ChangeDutyCycle(0)
