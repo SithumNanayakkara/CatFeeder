@@ -12,8 +12,6 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11,GPIO.OUT)
 servo = GPIO.PWM(11,50) # pin 5 for micro servo, pulse 50Hz
 
-buttonState = GPIO.input(buttonPin)
-
 # Set pin 29 as an input, and define as PIR as pin 29
 GPIO.setup(29,GPIO.IN)
 
