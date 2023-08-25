@@ -1,5 +1,9 @@
 import unittest
+import sys
 from unittest.mock import patch, Mock
+
+sys.path.extend(['/var/www/CatFeeder'])
+
 from commonTasks import *
 
 class TestCommonTasks(unittest.TestCase):
