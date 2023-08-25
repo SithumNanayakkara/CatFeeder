@@ -81,8 +81,8 @@ class GracefulKiller:
         self.kill_now = True
 
 def display_on_lcd(message):
-    looking = commonTasks.print_to_LCDScreen(message)
-    time.sleep(1)
+    looking = commonTasks.print_to_LCDScreen_no_Animation(message)
+    time.sleep(2)
     print("Message Display return status: " + str(looking))       
 
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
@@ -137,7 +137,7 @@ while True:
 
             lcd_thread = threading.Thread(target=display_on_lcd, args=("Looking for cat\n"+ "for another: " + timeleft,))
             lcd_thread.start()
-            
+
             # reads frames from a camera 
             ret, img = cap.read() 
   
