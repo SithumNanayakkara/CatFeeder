@@ -161,7 +161,7 @@ while True:
                 catDetectDatetime = datetime.datetime.now()
                 print("Cat detected at " + str(catDetectDatetime))
                 motionDetect = commonTasks.print_to_LCDScreen("Cat Detected!")
-                time.sleep(1)
+                time.sleep(2)
                 print("Message Display return status: " + str(motionDetect))
                 lastFeedDateCursor = commonTasks.db_get_last_feedtimes(1)
                 lastFeedDateString = lastFeedDateCursor[0][0]
@@ -184,7 +184,7 @@ while True:
                     print("End DB Insert return status: " + str(dblog))
                     feeding = commonTasks.print_to_LCDScreen("Feeding!")
                     print("End Message Display return status: " + str(feeding))
-                    time.sleep(1)
+                    time.sleep(3)
             else:
                 time.sleep(0.5)
                 catfound = False
