@@ -117,15 +117,15 @@ while True:
         timeout_start = time.time()
 
         catfound = False
-        
+
+        looking = commonTasks.print_to_LCDScreen("Looking for cat")
+        time.sleep(1)
+        print("Message Display return status: " + str(looking))
+
         # loop runs till timeout specified by Seconds_Wait_For_Cat in app.cfg or till cat is found
         while time.time() < timeout_start + int(lookingForCatSeconds) and not(catfound) :
             print("While loop started - looking for cat")
-            print("Time left in loop: " + time.time() - (timeout_start + int(lookingForCatSeconds)))
-            looking = commonTasks.print_to_LCDScreen("Looking for cat")
-            time.sleep(1)
-            print("Message Display return status: " + str(looking))
-
+            print("Time left in loop: " + str(time.time() - (timeout_start + int(lookingForCatSeconds)))+ "s")
             # reads frames from a camera 
             ret, img = cap.read() 
   
@@ -177,8 +177,9 @@ while True:
                 time.sleep(0.5)
                 catfound = False
 
+        print("Exiting while loop - looking for cat")
         if not(catfound):
-            print("No cat face detected for: " + int(lookingForCatSeconds) + "s")
+            print("No cat face detected for: " + lookingForCatSeconds + "s")
             notFound = commonTasks.print_to_LCDScreen("No cat detected!\nLooked for: " + int(lookingForCatSeconds) +"s")
             time.sleep(1)
 
