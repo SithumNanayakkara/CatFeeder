@@ -192,21 +192,6 @@ def deleteUpcomingFeedingTime(dateToDate):
         return e
 
 
-@app.route('/video/<videoid>', methods=['GET', 'POST'])
-def video_page(videoid):
-    try:
-        valid = 0
-
-        for f in os.listdir(motionVideoDirPath):
-            if f == videoid:
-                valid = 1
-
-        if valid == 1:
-            return render_template('video.html', videoid=videoid)
-        else:
-            abort(404)
-    except Exception as e:
-        return render_template('error.html', resultsSET=e)
 
 ######################################################################################
 ##########################################ADMIN PAGE##################################
