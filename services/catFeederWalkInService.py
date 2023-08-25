@@ -132,10 +132,10 @@ while True:
         while time.time() < timeout_start + int(lookingForCatSeconds) and not(catfound) :
             
             print("While loop started - looking for cat")
-            timeleft = str(time.time() - (timeout_start + int(lookingForCatSeconds)))
+            timeleft = str(int(-(time.time() - (timeout_start + int(lookingForCatSeconds)))))
             print("Time left in loop: " + timeleft + "s")
 
-            lcd_thread = threading.Thread(target=display_on_lcd, args=("Looking for cat\n"+ "for another: " + timeleft,))
+            lcd_thread = threading.Thread(target=display_on_lcd, args=("Looking for cat\nRemaining: " + timeleft+ "s",))
             lcd_thread.start()
 
             # reads frames from a camera 
