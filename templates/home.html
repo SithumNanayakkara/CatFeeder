@@ -8,12 +8,14 @@
 
 
 <div class="row">
-        <div class="col-md-12 text-center">
-            <form role="form" name="feedbuttonclick" method="post" action="/feedbuttonclick">
-                <button class="btn btn-lg feedButton" type="submit">Feed Now</button>
-            </form>
-        </div>
+    <div class="col-md-12 text-center">
+        <form role="form" name="feedbuttonclick" method="post" action="/feedbuttonclick">
+            <button class="btn btn-lg feedButton" type="submit">Feed Now</button>
+        </form>
+    </div>
 </div>
+
+<br>
 
 <div class="row">
     <div class="col-md-6">
@@ -33,48 +35,51 @@
         </table>
     </div>
 
+
+
     <div class="col-md-6" >
+        <div>
+            <form name="myForm" method="post">
+                <table class="table" id="upcomingFeedTimesTable">
+                    <thead>
+                    <tr>
+                        <th>Scheduled Times</th>
+                        <th>Delete Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for entry in upcomingXNumberFeedTimes %}
+                    <tr>
+                        <td>{{entry}}</td>
+                        <td class="text-center">
+                            <input class="btn-sm btn-danger" type="button" value="Delete" onclick="deleteRow(this)"/>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </form>
             <div>
-                <form name="myForm" method="post">
-                    <table class="table" id="upcomingFeedTimesTable">
-                        <thead>
-                        <tr>
-                            <th>Scheduled Times</th>
-                            <th>Delete Time</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for entry in upcomingXNumberFeedTimes %}
-                        <tr>
-                            <td>{{entry}}</td>
-                            <td class="text-center">
-                                <input class="btn-sm btn-danger" type="button" value="Delete" onclick="deleteRow(this)"/>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                <h4>Schedule a Feed Time</h4>
+                <form role="form" name="scheduleDatetime" method="post" action="/scheduleDatetime">
+                    <input type="date" name="scheduleDatetime">
+                    <input type="time" name="scheduleTime">
+                    <input style="margin-top: 5px" class="btn btn-primary" type="submit" value="Schedule One Time Feed">
                 </form>
+                <br>
                 <div>
-                    <h4>Schedule a Feed Time</h4>
-                    <form role="form" name="scheduleDatetime" method="post" action="/scheduleDatetime">
-                        <input type="date" name="scheduleDatetime">
-                        <input type="time" name="scheduleTime">
-                        <input style="margin-top: 5px" class="btn btn-primary" type="submit" value="Schedule One Time Feed">
+                    <form role="form" name="scheduleRepeatingDatetime" method="post" action="/scheduleRepeatingDatetime">
+                        <input type="text" name="scheduleRepeatingDate" value="Daily" size="17" readonly>
+                        <input type="time" name="scheduleRepeatingTime">
+                        <input style="margin-top: 5px" class="btn btn-primary" type="submit" value="Schedule Repeating Daily Feed">
                     </form>
-                    <br>
-                    <div>
-                        <form role="form" name="scheduleRepeatingDatetime" method="post" action="/scheduleRepeatingDatetime">
-                            <input type="text" name="scheduleRepeatingDate" value="Daily" size="17" readonly>
-                            <input type="time" name="scheduleRepeatingTime">
-                            <input style="margin-top: 5px" class="btn btn-primary" type="submit" value="Schedule Repeating Daily Feed">
-                        </form>
-                    </div>
-                    <br>
                 </div>
+                <br>
             </div>
+        </div>
     </div>
 </div>
+
 
 <script>
     function deleteRow(btn){
