@@ -22,8 +22,6 @@ secondDelay = configParser.get('CatFeederConfig', 'Seconds_Delay_Between_Schedul
 LOG_TimeService_FILENAME = configParser.get('CatFeederConfig', 'Log_TimeService_Filename')
 servoGPIO = str(configParser.get('CatFeederConfig', 'Servo_GPIO_Pin'))
 servoOpenTime = str(configParser.get('CatFeederConfig', 'Servo_Open_Time'))
-motionVideoDirPath = str(configParser.get('CatFeederConfig', 'Motion_Video_Dir_Path'))
-nowMinusXDays = str(configParser.get('CatFeederConfig', 'Number_Days_Of_Videos_To_Keep'))
 
 # Define and parse command line arguments
 parser = argparse.ArgumentParser(description="My simple Python service")
