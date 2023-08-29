@@ -1,4 +1,4 @@
-</h1> Welcome to the Smart CatFeeder Project</h1>
+<h1>Welcome to the Smart CatFeeder Project</h1>
 
 CatFeeder Project using Raspi for Embbeded Software Engineering (ENSE810)
 
